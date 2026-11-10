@@ -1,0 +1,9 @@
+{
+  "name": "jennifer-largo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sitio informativo de Jennifer Largo",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
