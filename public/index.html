@@ -1,75 +1,453 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Página informativa de Jennifer Largo."
-    />
-    <title>Jennifer Largo | Página informativa</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="/styles.css" />
-  </head>
-  <body>
-    <header class="site-header">
-      <a class="brand" href="#inicio" aria-label="Ir al inicio">JL<span>.</span></a>
-      <nav aria-label="Navegación principal">
-        <a href="#sobre-mi">Sobre mí</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
-    </header>
 
-    <main>
-      <section class="hero" id="inicio">
-        <div class="hero-copy">
-          <p class="eyebrow">Bienvenida</p>
-          <h1>Jennifer<br /><em>Largo</em></h1>
-          <p class="intro">
-            Un espacio para conocer mi historia, mis ideas y los proyectos que
-            me inspiran.
-          </p>
-          <a class="button" href="#sobre-mi">Conóceme <span aria-hidden="true">→</span></a>
-        </div>
-        <div class="hero-shape" aria-hidden="true">
-          <div class="shape-inner">JL</div>
-        </div>
-      </section>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta name="description" content="EnteroMix: información sobre una inmunoterapia experimental contra el cáncer." />
+  <title>EnteroMix
+    | Investigación oncológica</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/enteromix.css" />
+  <link rel="stylesheet" href="/intro-layout.css" />
+</head>
 
-      <section class="about" id="sobre-mi">
-        <p class="eyebrow">Un poco sobre mí</p>
-        <div class="about-grid">
-          <h2>Ideas con intención y una mirada auténtica.</h2>
-          <div>
-            <p>
-              Este es el inicio de un sitio personal pensado para compartir
-              información, experiencias y aquello que hace especial cada
-              proyecto.
-            </p>
-            <p class="muted">Pronto encontrarás aquí más historias y novedades.</p>
+<body>
+  <div class="page-grid"></div>
+  <header class="site-header"><a class="brand" href="#inicio"><span
+        class="brand-mark">E</span><span>ENTEROMIX</span></a><button class="menu-toggle" aria-expanded="false"
+      aria-controls="primary-nav">Menú <span></span></button>
+    <nav id="primary-nav"><a href="#introduccion">Introducción</a><a href="#fundamento">Fundamento biológico</a><a
+        href="#estado">Investigación</a><a href="#evidencia">Evidencia</a><a href="#referencias">Referencias</a></nav>
+  </header>
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-copy reveal">
+        <p class="kicker"><span></span> El futuro se investiga con
+          ciencia</p>
+        <h1>EnteroMix:<br /><em>viroterapia</em><br />en
+          investigación.</h1>
+        <p class="hero-text">Es una inmunoterapia
+          experimental contra el cáncer desarrollada en Rusia por el Centro
+          Nacional de Investigación Médica de Radiología (NMRRC): qué es,
+          objetivos, cómo se propone que funcione, en qué fase de
+          investigación está y qué límites tiene la evidencia disponible
+          hoy.</p>
+        <div class="hero-actions"><a class="button button-primary" href="#introduccion">Explorar información
+            <b>↓</b></a><a class="text-link" href="#evidencia">Ver evidencia
+            <b>→</b></a></div>
+      </div>
+      <div class="hero-visual reveal">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div><img src="/imagenes/imagen3.jpeg"
+          alt="Ilustración de una célula tumoral y un agente terapéutico" />
+        <div class="visual-card"><span>FASE I · EXPERIMENTAL</span><strong>No es
+            un tratamiento<br />aprobado</strong></div>
+      </div>
+    </section>
+    <section class="summary-cards reveal" aria-label="Resumen de EnteroMix">
+      <article>
+        <p>Clasificación</p><strong>Terapia
+          oncolítica<br />Combinación experimental de
+          virus</strong>
+      </article>
+      <article>
+        <p>¿En qué fase se
+          encuentra?</p><strong>Fase I de ensayos clínicos<br />(seguridad y
+          dosis)</strong>
+      </article>
+      <article>
+        <p>Objetivo</p><strong>Evaluar su
+          seguridad, tolerabilidad y farmacocinética en pacientes con tumores
+          sólidos avanzados.</strong>
+      </article>
+      <article>
+        <p>Uso
+          comercial</p><strong>No disponible<br />No es un tratamiento
+          aprobado</strong>
+      </article>
+    </section>
+    <section class="intro section" id="introduccion">
+      <div class="section-label reveal"><span>0.1</span>
+        <p>Introducción</p>
+      </div>
+      <div class="intro-lead reveal">
+        <div class="intro-title">
+          <p class="intro-question">¿Qué es?</p>
+          <h2>Producto
+            biológico<br /><em>experimental.</em></h2>
+          <p class="intro-statement">Desarrollado en Rusia por el Centro
+            Nacional de Investigación Médica de Radiología, en colaboración
+            con el Instituto Engelhardt de Biología Molecular.</p>
+          <p class="intro-goal">Su objetivo es la combinación de cuatro virus
+            no patógenos con potencial para destruir células malignas y
+            estimular la respuesta inmunitaria antitumoral. <a class="citation" href="#ref-1">[1]</a> <a
+              class="citation" href="#ref-2">[2]</a></p>
+          <div class="intro-pills"><span>4
+              enterovirus</span><span>Investigación
+              oncológica</span></div>
+        </div>
+        <figure class="intro-image"><img src="/imagenes/imagen4.jpeg"
+            alt="Investigadora revisando información clínica en un laboratorio" />
+          <div class="image-badge"><span>ENTEROMIX</span><strong>Viroterapia<br />oncolítica</strong></div>
+          <figcaption>Investigación
+            oncológica y análisis
+            clínico.</figcaption>
+        </figure>
+      </div>
+    </section>
+    <section class="classification section" id="clasificacion">
+      <div class="section-label reveal"></div>
+      <div class="classification-grid">
+        <div class="classification-copy reveal">
+          <p class="classification-eyebrow">Por su forma de acción
+            propuesta se clasifica como: </p>
+          <h2>Viroterapia<br /><em>oncolítica.</em></h2>
+          <p class="classification-lead">Pero, ¿qué hace posible esta vacuna?
+            Una mezcla de virus que buscan al tumor.</p>
+          <div class="classification-note"><span>01</span>
+            <p> Virus oncolíticos. Consiste en una mezcla de cuatro enterovirus
+            humanos con capacidad de replicación selectiva en determinadas
+            células tumorales, provocando su destrucción. Este proceso puede
+            liberar antígenos tumorales y señales moleculares que favorecen la
+            activación del sistema inmunitario. <a class="citation" href="#ref-2">[2]</a></p>
+            <p>La familia a la que pertenecen sus componentes, Picornaviridae, agrupa virus pequeños, sin envoltura y con material genético de ARN de cadena simple.</p>
           </div>
         </div>
-      </section>
+        <div class="classification-card reveal">
+          
 
-      <section class="contact" id="contacto">
-        <div>
-          <p class="eyebrow">Mantengamos el contacto</p>
-          <h2>Hablemos de algo bonito.</h2>
+          <p>A diferencia de las
+              vacunas personalizadas de ARNm, EnteroMix utiliza virus para
+              atacar directamente las células tumorales y estimular las
+              defensas del organismo. Su objetivo es generar una respuesta
+          antitumoral mediante dos mecanismos complementarios. <a class="citation" href="#ref-3">[3]</a> <a
+            class="citation" href="#ref-4">[4]</a></p>
+              
+          <div class="virus-tags"><span>Picornaviridae</span><span>ARN
+              monocatenario</span><span>Sin envoltura</span></div>
+         
         </div>
-        <a class="contact-link" href="mailto:hola@jenniferlargo.com">
-          hola@jenniferlargo.com <span aria-hidden="true">↗</span>
-        </a>
-      </section>
-    </main>
+      </div>
+      <div class="classification-summary reveal">
+        <div><span>La innovación detrás
+            de EnteroMix</span><strong>Destrucción
+            celular</strong></div><i>+</i>
+        <div><span>Respuesta
+            antitumoral</span><strong>Activación
+            inmunitaria</strong></div>
+         
+      </div>
+    </section>
+    <section class="focus section" id="fundamento">
+      <div class="focus-image reveal"><img src="/imagenes/imagen2.jpeg"
+          alt="Investigadoras trabajando con microscopio en laboratorio" />
+    
+      </div>
+      <div class="focus-copy reveal">
+        <div class="section-label"><span>0.2</span>
+          <p>Fundamento
+            biológico</p>
+        </div>
+        <h2>4 pasos <em>una hipotesis de trabajo</em></h2>
+        <p>Se
+          basa en un concepto conocido como viroterapia oncolítica, el cual
+          busca romper la “capa de invisibilidad” que los tumores utilizan
+          para esconderse del sistema inmunitario.</p>
+        <p>Consiste en potenciar
+          diferentes mecanismos de defensa del organismo para mejorar el
+          reconocimiento y la eliminación de las células cancerosas, provocar
+          la destrucción de células tumorales y favorecer la liberación de
+          antígenos y señales de peligro que estimulan la respuesta
+          inmunitaria. <a class="citation" href="#ref-2">[2]</a></p>
+      </div>
+    </section>
+    <section class="data-section section">
+      <div class="section-label reveal"><span>Tabla</span>
+        <p>Características
+          descritas</p>
+      </div>
+      <div class="table-wrap reveal">
+        <table>
+          <tbody>
+            <tr>
+              <th>Nombre</th>
+              <td>EnteroMix
+                (ЭнтероМикс)</td>
+            </tr>
+            <tr>
+              <th>Clasificación</th>
+              <td>Inmunoterapia
+                experimental · viroterapia
+                oncolítica</td>
+            </tr>
+            <tr>
+              <th>Composición</th>
+              <td>Cuatro
+                enterovirus humanos con capacidad de
+                replicación</td>
+            </tr>
+            <tr>
+              <th>Vía de
+                administración</th>
+              <td>Intravenosa o intraarterial, según el
+                protocolo clínico</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <section class="diagram-section section" id="mecanismo">
+      <div class="diagram-heading reveal">
+        <div class="section-label"><span>0.2</span>
+          <p>Mecanismo</p>
+        </div>
+        <h2>¿Cómo <em>funciona?</em></h2>
+      </div>
+      <figure class="science-figure reveal"><img src="/imagenes/imagen1.jpeg"
+          alt="Esquema científico de mecanismos virales y respuesta inmune en células tumorales" />
+        <figcaption class="diagram-callout">No solo busca destruir el tumor, también estimular
+          las defensas del organismo para combatirlo.</figcaption>
+      </figure>
+      <div class="process-grid">
+        <article class="process-card reveal"><span>1.</span>
+          <h3>Reconocimiento e
+            infección</h3>
+          <p>Los virus infectan las células tumorales
+            susceptibles.</p>
+        </article>
+        <article class="process-card reveal"><span>2.</span>
+          <h3>Destrucción
+            tumoral</h3>
+          <p>La actividad viral provoca la destrucción de las
+            células cancerosas.</p>
+        </article>
+        <article class="process-card reveal"><span>3.</span>
+          <h3>Activación
+            inmunitaria</h3>
+          <p>La destrucción celular libera señales y
+            antígenos tumorales que pueden favorecer la activación del sistema
+            inmunitario.</p>
+        </article>
+        <article class="process-card reveal"><span>4.</span>
+          <h3>Reconocimiento
+            tumoral</h3>
+          <p>Los linfocitos T pueden reconocer y atacar las
+            células tumorales que presentan los antígenos
+            correspondientes.</p>
+        </article>
+      </div>
+    </section>
+    <section class="facts section" id="estado">
+      <div class="facts-header reveal">
+        <div class="section-label"><span>0.3</span>
+          <p>Estado de la
+            investigación</p>
+        </div>
+        <h2>¿Dónde está
+          hoy<br />EnteroMix?</h2>
+      </div>
+      <p class="lead reveal">Descubramos su
+        recorrido científico, desde los primeros experimentos hasta sus
+        ensayos en pacientes. Cada avance cuenta, pero ¿qué se ha demostrado
+        realmente?</p>
+      <div class="timeline reveal">
+        <article><time>1. Antes de
+            2025</time>
+          <h3>Investigación preclínica</h3>
+          <p>Durante varios años
+            se desarrollaron estudios farmacológicos y pruebas preclínicas
+            para evaluar la actividad antitumoral y la seguridad de la
+            combinación de virus. Los desarrolladores señalaron que esta etapa
+            incluyó tres años de estudios preclínicos obligatorios. <a class="citation" href="#ref-5">[5]</a></p>
+        </article>
+        <article><time>2. Diciembre
+            de 2024</time>
+          <h3>Autorización para ensayos clínicos</h3>
+          <p>La
+            Academia de Ciencias de Rusia anunció que EnteroMix había recibido
+            autorización del Ministerio de Salud ruso para iniciar un ensayo
+            clínico de fase I, después de completar evaluaciones
+            farmacológicas y estudios preclínicos iniciales. <a class="citation" href="#ref-5">[5]</a></p>
+        </article>
+        <article><time>3. Junio –
+            septiembre de 2025</time>
+          <h3>Anuncios y aclaraciones
+            científicas</h3>
+          <p>Durante el Foro Económico Internacional de San
+            Petersburgo se difundieron resultados preclínicos prometedores,
+            incluyendo afirmaciones de una eficacia del 100 % en determinados
+            modelos experimentales. En septiembre, Euronews aclaró que estas
+            cifras no correspondían a ensayos clínicos en humanos y que no
+            demostraban una eficacia del 100 % en pacientes. <a class="citation" href="#ref-6">[6]</a></p>
+        </article>
+        <article><time>4. Julio de
+            2025</time>
+          <h3>Inicio de los ensayos en humanos</h3>
+          <p>El ensayo
+            clínico EM-I-2024 comenzó el 30 de julio de 2025. Se trata de un
+            estudio de fase I diseñado para evaluar la seguridad,
+            tolerabilidad y farmacocinética de EnteroMix en pacientes con
+            tumores sólidos. <a class="citation" href="#ref-7">[7]</a></p>
+        </article>
+        <article><time>5. Mayo –
+            julio de 2026</time>
+          <h3>Seguimiento de la investigación
+            clínica</h3>
+          <p>El estudio fue publicado en ClinicalTrials.gov el
+            13 de mayo de 2026, bajo el código NCT07584668. El registro indica
+            que se encuentra activo, sin reclutamiento de nuevos participantes
+            y sin resultados publicados. En julio, el centro investigador
+            confirmó que EnteroMix continuaba únicamente en fase
+            I.</p>
+        </article>
+      </div>
+      <div class="state-callout reveal"><strong>¿Qué significa su estado
+          actual?</strong>
+        <h3>Investigación clínica · Fase I</h3>
+        <p>EnteroMix
+          todavía es un tratamiento experimental. Aunque ha superado etapas
+          preclínicas y ha iniciado su evaluación en humanos, aún se necesitan
+          resultados clínicos para determinar su seguridad y
+          eficacia.</p>
+      </div>
+    </section>
+    <section class="evidence section" id="evidencia">
+      <div class="section-label reveal"><span>0.4</span>
+        <p>Evidencia</p>
+      </div>
+      <h2 class="reveal">¿Qué tan lejos ha llegado<br />la
+        <em>ciencia?</em>
+      </h2>
+      <p class="lead reveal">De los experimentos de
+        laboratorio a los ensayos en personas: conozcamos qué se sabe y qué
+        falta por descubrir.</p>
+      <div class="evidence-grid">
+        <article class="evidence-card reveal"><span class="status supported">Lo que
+            se ha investigado</span>
+          <h3>Resultados preclínicos</h3>
+          <p>Los
+            estudios preclínicos permitieron evaluar la actividad antitumoral
+            de EnteroMix en modelos experimentales. Los desarrolladores
+            comunicaron resultados prometedores antes de iniciar las pruebas
+            en humanos.</p>
+        </article>
+        <article class="evidence-card reveal"><span class="status reported">Lo que se
+            está estudiando</span>
+          <h3>Ensayo clínico de fase
+            I</h3>
+          <p>EnteroMix avanzó a un ensayo clínico de fase I, diseñado
+            para evaluar su seguridad, tolerabilidad y comportamiento en el
+            organismo.</p>
+        </article>
+        <article class="evidence-card reveal"><span class="status unknown">Lo que aún
+            falta conocer</span>
+          <h3>Seguridad y eficacia</h3>
+          <p>Se necesitan
+            resultados clínicos que permitan determinar si el tratamiento es
+            seguro y eficaz en pacientes, así como identificar sus posibles
+            efectos adversos.</p>
+        </article>
+      </div>
+      <div class="evidence-grid evidence-status reveal">
+        <article class="evidence-card"><span class="status supported">Respaldado</span>
+          <h3>Fundamento
+            biológico</h3>
+          <p>La viroterapia oncolítica tiene respaldo
+            científico como estrategia experimental contra el
+            cáncer.</p>
+        </article>
+        <article class="evidence-card"><span class="status reported">Reportados</span>
+          <h3>Resultados
+            preclínicos</h3>
+          <p>Los desarrolladores comunicaron resultados
+            prometedores en modelos experimentales.</p>
+        </article>
+        <article class="evidence-card"><span class="status unknown">No
+            demostrada</span>
+          <h3>Eficacia en humanos</h3>
+          <p>Todavía no hay
+            resultados clínicos publicados que confirmen su
+            eficacia.</p>
+        </article>
+      </div>
+      <div class="answer reveal">
+        <h3>¿Significa que EnteroMix ya puede curar el
+          cáncer?</h3>
+        <p><strong>No.</strong> Aunque sus resultados iniciales
+          han despertado interés científico, todavía se encuentra en
+          investigación clínica y necesita superar nuevas etapas de
+          evaluación.</p>
+      </div>
+    </section>
+    <section class="references section" id="referencias">
+      <div class="section-label reveal"><span>0.5</span>
+        <p>Referencias</p>
+      </div>
+      <div class="references-grid reveal">
+        <ol>
+          <li id="ref-1">National Medical
+            Research Radiological Centre. (s. f.). <em>Vaccinotherapy:
+              Oncolytic vaccine EnteroMix.</em> <a
+              href="https://new.nmicr.ru/pacientam/metody-diagnostiki-ilechenija/vakcinoterapija/" target="_blank"
+              rel="noopener">Consultar fuente ↗</a></li>
+          <li id="ref-2">Inoue, H. (2026). <em>Oncolytic virotherapy and
+              immunogenic cell death: Mechanisms, platforms, and clinical
+              translation.</em> Viruses, 18(4), 461. <a href="https://doi.org/10.3390/v18040461" target="_blank"
+              rel="noopener">doi.org ↗</a></li>
+          <li id="ref-3">Khalil, M. H.,
+            Hassan, M. D., Fatima, M., Talha, M., &amp; Gill, O. A. (2025,
+            September 29). <em>EnteroMix and the emerging role of MRNA-based
+              therapeutics in colorectal cancer: from preclinical tumor
+              regression to clinical translation.</em> <a href="https://doi.org/10.1097/MS9.0000000000003990"
+              target="_blank" rel="noopener">doi.org ↗</a></li>
+          <li id="ref-4">Torphy, R. J., Balachandran, V., &amp; Soares, K. C.
+            (2026). <em>mRNA Vaccines for Cancer Treatment.</em> Surgical
+            Oncology Clinics of North America, 35(2), 299–316. <a href="https://doi.org/10.1016/j.soc.2025.10.006"
+              target="_blank" rel="noopener">doi.org ↗</a></li>
+          <li id="ref-5">ClinicalTrials.gov. <em>EnteroMix Clinical Trial,
+              NCT07584668.</em> <a href="https://clinicaltrials.gov/study/NCT07584668?utm_source=chatgpt.com"
+              target="_blank" rel="noopener">Consultar registro ↗</a></li>
+          <li id="ref-6">Alekseeva, O. N., Hoa, L. T., Vorobyev, P. O.,
+            Kochetkov, D. V., Gumennaya, Y. D., Naberezhnaya, E. R.,
+            Chuvashov, D. O., Ivanov, A. V., Chumakov, P. M., &amp; Lipatova,
+            A. V. (2024). <em>Receptors and Host Factors for Enterovirus
+              Infection: Implications for Cancer Therapy.</em> Cancers,
+            16(18), 3139. <a href="https://doi.org/10.3390/cancers16183139" target="_blank" rel="noopener">doi.org ↗</a>
+          </li>
+          <li id="ref-7">ФГБУ «НМИЦ радиологии» Минздрава России. (2024,
+            December 2). <em>Вакцина от рака – биотехнологичные решения в
+              борьбе с онкозаболеваниями.</em> <a
+              href="https://new.nmicr.ru/pacientam/metody-diagnostiki-ilechenija/vakcinoterapija/" target="_blank"
+              rel="noopener">Consultar fuente
+              ↗</a></li>
+        </ol>
+      </div>
+    </section>
+    <section class="notice section reveal">
+      <div>
+        <p class="kicker"><span></span> Nota importante</p>
+        <h2>Información para
+          comprender. No sustituye orientación médica.</h2>
+      </div>
+      <p>Las
+        decisiones sobre prevención, diagnóstico o tratamiento deben
+        conversarse con profesionales de salud cualificados. La información
+        científica evoluciona y cada caso requiere una valoración
+        individual.</p>
+    </section>
+  </main>
+  <footer><a class="brand" href="#inicio"><span class="brand-mark">E</span><span>ENTEROMIX</span></a>
+    <p>Información
+      sobre investigación oncológica</p><a href="#inicio">Volver arriba
+      ↑</a>
+  </footer>
+  <script src="/script.js"></script>
+</body>
 
-    <footer>
-      <span>© 2026 Jennifer Largo</span>
-      <span>Hecho con intención.</span>
-    </footer>
-  </body>
 </html>

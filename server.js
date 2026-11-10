@@ -10,10 +10,13 @@ const contentTypes = {
   ".html": "text/html; charset=utf-8",
   ".js": "text/javascript; charset=utf-8",
   ".svg": "image/svg+xml",
+  ".jpeg": "image/jpeg",
+  ".jpg": "image/jpeg",
 };
 
 const server = http.createServer((request, response) => {
-  const requestedPath = request.url === "/" ? "/index.html" : request.url;
+  const pathname = new URL(request.url, "http://localhost").pathname;
+  const requestedPath = pathname === "/" ? "/index.html" : pathname;
   const safePath = path.normalize(requestedPath).replace(/^(\.\.[\\/])+/, "");
   const filePath = path.join(publicDirectory, safePath);
 
@@ -34,10 +37,21 @@ const server = http.createServer((request, response) => {
     response.writeHead(200, {
       "Content-Type": contentTypes[extension] || "application/octet-stream",
     });
+    if (extension === ".html") {
+      const html = file
+        .toString("utf8")
+        .replace(
+          "</head>",
+          '<link rel="stylesheet" href="/intro-fix.css" /><style>.intro .intro-content{display:none!important}</style></head>',
+        );
+      response.end(html);
+      return;
+    }
+
     response.end(file);
   });
 });
 
 server.listen(port, "0.0.0.0", () => {
-  console.log(`Jennifer Largo está disponible en el puerto ${port}`);
+  console.log(`Enteromix está disponible en el puerto ${port}`);
 });
