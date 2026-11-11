@@ -37,15 +37,63 @@
 #explorar-enteromix .em-portada{
   position:relative;
   overflow:hidden;
-  padding:65px 34px;
+  min-height:390px;
+  padding:58px clamp(28px,6vw,78px);
   border-radius:30px;
   color:white;
-  text-align:center;
+  text-align:left;
   background:
-    radial-gradient(circle at 12% 20%,rgba(41,169,197,.38),transparent 28%),
-    radial-gradient(circle at 90% 80%,rgba(141,128,201,.4),transparent 30%),
-    linear-gradient(135deg,#102d4d,#145c91 60%,#168c91);
-  box-shadow:0 20px 48px rgba(16,45,77,.2);
+    radial-gradient(circle at 78% 45%,rgba(71,207,220,.24),transparent 22%),
+    radial-gradient(circle at 95% 100%,rgba(141,128,201,.42),transparent 32%),
+    linear-gradient(120deg,#0b2744,#145c91 58%,#168c91);
+  box-shadow:0 24px 55px rgba(16,45,77,.24);
+}
+#explorar-enteromix .em-portada-contenido{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:minmax(0,1.1fr) minmax(280px,.9fr);
+  gap:40px;
+  align-items:center;
+}
+#explorar-enteromix .em-portada-art{
+  position:relative;
+  justify-self:end;
+  width:min(100%,360px);
+  transform:rotate(3deg);
+}
+#explorar-enteromix .em-portada-art:before{
+  content:"";
+  position:absolute;
+  inset:16px -13px -16px 13px;
+  border:1px solid rgba(187,246,247,.45);
+  border-radius:24px;
+  transform:rotate(-7deg);
+}
+#explorar-enteromix .em-portada-art img{
+  position:relative;
+  display:block;
+  width:100%;
+  height:250px;
+  object-fit:cover;
+  border:7px solid rgba(255,255,255,.82);
+  border-radius:22px;
+  box-shadow:0 20px 34px rgba(2,20,39,.32);
+  filter:saturate(1.08) contrast(1.03);
+}
+#explorar-enteromix .em-portada-art figcaption{
+  position:absolute;
+  z-index:2;
+  right:-15px;
+  bottom:-17px;
+  max-width:210px;
+  padding:9px 13px;
+  border-radius:12px;
+  background:#f7ffff;
+  color:var(--navy);
+  font-size:11px;
+  line-height:1.35;
+  box-shadow:0 9px 20px rgba(2,20,39,.2);
 }
 
 #explorar-enteromix .em-portada:before,
@@ -57,83 +105,142 @@
   pointer-events:none;
 }
 #explorar-enteromix .em-portada:before{
-  width:300px;height:300px;top:-180px;left:-70px;
+  width:340px;height:340px;top:-210px;left:-100px;
 }
 #explorar-enteromix .em-portada:after{
-  width:400px;height:400px;bottom:-290px;right:-80px;
+  width:470px;height:470px;bottom:-340px;right:-125px;
 }
 
 #explorar-enteromix .em-etiqueta{
   display:inline-block;
-  background:rgba(255,255,255,.15);
-  border:1px solid rgba(255,255,255,.3);
-  padding:7px 17px;
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(171,239,244,.42);
+  padding:8px 15px;
   border-radius:30px;
   font-size:11px;
   letter-spacing:2px;
   text-transform:uppercase;
-  margin-bottom:15px;
+  margin-bottom:21px;
+  box-shadow:0 7px 20px rgba(0,0,0,.1);
+  backdrop-filter:blur(8px);
 }
 
 #explorar-enteromix .em-portada h1{
   font-family:'Allura','Playfair Display',serif;
-  font-size:clamp(66px,10vw,108px);
+  max-width:650px;
+  font-size:clamp(70px,10vw,116px);
   line-height:1;
-  margin:8px 0 17px;
-  letter-spacing:2px;
-  text-shadow:0 5px 18px rgba(0,0,0,.2);
+  margin:0 0 13px;
+  letter-spacing:1px;
+  text-shadow:0 7px 22px rgba(0,0,0,.26);
 }
 
 #explorar-enteromix .em-portada p{
-  max-width:720px;
-  margin:auto;
+  max-width:610px;
+  margin:0;
   font-size:16px;
+  line-height:1.75;
   color:rgba(255,255,255,.93);
 }
 
 #explorar-enteromix .em-portada .em-mini{
-  margin-top:27px;
+  margin-top:28px;
   display:flex;
-  justify-content:center;
+  justify-content:flex-start;
   gap:12px;
   flex-wrap:wrap;
 }
 #explorar-enteromix .em-mini span{
   border:1px solid rgba(255,255,255,.3);
-  padding:8px 15px;
+  padding:9px 14px;
   border-radius:30px;
   font-size:12px;
   background:rgba(255,255,255,.09);
   backdrop-filter:blur(5px);
+  transition:.25s ease;
+}
+#explorar-enteromix .em-mini span:hover{
+  background:rgba(255,255,255,.18);
+  border-color:rgba(184,246,247,.7);
+  transform:translateY(-3px);
 }
 
 #explorar-enteromix .em-menu{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:15px;
-  margin:27px 0;
+  gap:16px;
+  margin:25px 0 30px;
 }
 #explorar-enteromix .em-menu button{
+  position:relative;
+  min-height:130px;
   border:1px solid #d7e7f0;
-  border-radius:19px;
-  padding:20px 12px;
-  background:white;
+  border-radius:21px;
+  padding:23px 17px 19px;
+  background:linear-gradient(145deg,#fff,#f4fbfe);
   color:var(--navy);
   font-weight:800;
   font-size:14px;
-  box-shadow:0 6px 17px rgba(16,45,77,.06);
+  box-shadow:0 8px 21px rgba(16,45,77,.07);
+  transition:.25s ease;
+  overflow:hidden;
+}
+#explorar-enteromix .em-menu button:before{
+  content:"";
+  position:absolute;
+  width:80px;
+  height:80px;
+  right:-31px;
+  top:-34px;
+  border-radius:50%;
+  background:rgba(41,169,197,.1);
+  transition:.25s ease;
+}
+#explorar-enteromix .em-menu button:after{
+  content:"Explorar →";
+  position:absolute;
+  left:17px;
+  bottom:12px;
+  color:#6b8799;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.04em;
+  opacity:0;
+  transform:translateY(4px);
   transition:.25s ease;
 }
 #explorar-enteromix .em-menu button:hover{
-  transform:translateY(-5px);
+  transform:translateY(-7px);
   border-color:var(--cyan);
-  box-shadow:0 13px 26px rgba(20,92,145,.15);
+  box-shadow:0 16px 30px rgba(20,92,145,.16);
   background:#f7fcff;
+}
+#explorar-enteromix .em-menu button:hover:before{
+  width:125px;
+  height:125px;
+  background:rgba(41,169,197,.16);
+}
+#explorar-enteromix .em-menu button:hover:after{
+  opacity:1;
+  transform:none;
 }
 #explorar-enteromix .em-menu button .em-icono{
   display:block;
-  font-size:29px;
-  margin-bottom:8px;
+  position:relative;
+  z-index:1;
+  width:48px;
+  height:48px;
+  display:grid;
+  place-items:center;
+  margin:0 auto 13px;
+  border-radius:15px;
+  background:#e9f6fc;
+  font-size:27px;
+  transition:.25s ease;
+}
+#explorar-enteromix .em-menu button:hover .em-icono{
+  transform:scale(1.08) rotate(-4deg);
+  background:#d8f2f5;
 }
 
 #explorar-enteromix .em-panel{
@@ -147,6 +254,146 @@
   animation:emAparecer .45s ease;
 }
 #explorar-enteromix .em-panel.activo{display:block}
+
+#explorar-enteromix .em-media-card{
+  position:relative;
+  display:block;
+  width:100%;
+  margin:0;
+  padding:12px;
+  overflow:hidden;
+  border:1px solid #dcebf2;
+  border-radius:21px;
+  background:linear-gradient(120deg,#f3faff,#fff);
+  box-shadow:0 10px 24px rgba(16,45,77,.07);
+}
+#explorar-enteromix .em-media-card figure,
+#explorar-enteromix .em-media-duo figure{margin:0}
+#explorar-enteromix .em-media-card img,
+#explorar-enteromix .em-media-duo img{
+  display:block;
+  width:100%;
+  height:230px;
+  object-fit:cover;
+  border-radius:15px;
+}
+#explorar-enteromix .em-media-card--compact{
+  width:100%;
+}
+#explorar-enteromix .em-media-card--compact img{
+  height:180px;
+}
+#explorar-enteromix .em-media-card--diagram{
+  width:100%;
+  background:#f7fbfd;
+}
+#explorar-enteromix .em-media-card--diagram img{
+  height:205px;
+  object-fit:contain;
+}
+#explorar-enteromix .em-media-card figcaption,
+#explorar-enteromix .em-media-duo figcaption{
+  margin-top:8px;
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.45;
+}
+#explorar-enteromix .em-media-duo{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
+  margin:27px 0;
+}
+#explorar-enteromix .em-media-duo figure{
+  padding:10px;
+  border:1px solid #dcebf2;
+  border-radius:18px;
+  background:#f9fcfe;
+  box-shadow:0 8px 18px rgba(16,45,77,.06);
+}
+#explorar-enteromix .em-media-duo img{height:170px}
+#explorar-enteromix .em-media-trio{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin:27px 0;
+}
+#explorar-enteromix .em-media-trio figure{
+  margin:0;
+  padding:10px;
+  border:1px solid #dcebf2;
+  border-radius:18px;
+  background:#f9fcfe;
+  box-shadow:0 8px 18px rgba(16,45,77,.06);
+}
+#explorar-enteromix .em-media-trio img{
+  display:block;
+  width:100%;
+  height:145px;
+  object-fit:cover;
+  border-radius:12px;
+}
+#explorar-enteromix .em-text-media{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(250px,36%);
+  gap:24px;
+  align-items:center;
+  margin:27px 0;
+}
+#explorar-enteromix .em-text-media>p,
+#explorar-enteromix .em-text-media>.em-tabla-wrap{
+  margin:0;
+}
+#explorar-enteromix .em-text-media-copy{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+#explorar-enteromix .em-text-media-copy p{margin:0}
+#explorar-enteromix .em-text-media>.em-media-card{
+  margin:0;
+}
+#explorar-enteromix .em-text-media>.em-media-duo{
+  margin:0;
+  grid-template-columns:1fr;
+}
+#explorar-enteromix .em-media-strip{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:18px;
+  margin:27px 0;
+}
+#explorar-enteromix .em-media-strip figure{
+  position:relative;
+  margin:0;
+  min-height:180px;
+  overflow:hidden;
+  border-radius:20px;
+  background:#102d4d;
+}
+#explorar-enteromix .em-media-strip img{
+  display:block;
+  width:100%;
+  height:100%;
+  min-height:180px;
+  object-fit:cover;
+  opacity:.88;
+}
+#explorar-enteromix .em-media-strip figcaption{
+  position:absolute;
+  right:12px;
+  bottom:12px;
+  left:12px;
+  padding:8px 11px;
+  border-radius:10px;
+  background:rgba(7,28,47,.78);
+  color:#e9fbff;
+  font-size:11px;
+  line-height:1.4;
+  backdrop-filter:blur(5px);
+}
+#explorar-enteromix .em-media-strip figure:first-child{grid-row:span 2}
+#explorar-enteromix .em-media-strip figure:first-child img{min-height:378px}
 
 @keyframes emAparecer{
   from{opacity:0;transform:translateY(14px)}
@@ -742,6 +989,12 @@
 #explorar-enteromix .em-referencias li:target{
   background:#effaff;border-radius:8px;padding:8px;
 }
+#explorar-enteromix .em-referencias li.enfocada{
+  background:#effaff;
+  border-radius:8px;
+  padding:8px;
+  outline:2px solid rgba(41,169,197,.25);
+}
 #explorar-enteromix .em-pie{
   text-align:center;color:#7890a2;font-size:12px;margin-top:30px;
   letter-spacing:1px;
@@ -760,7 +1013,35 @@
   #explorar-enteromix .lab-persona small{font-size:7px}
   #explorar-enteromix .em-sopa{gap:2px}
   #explorar-enteromix .em-letra{font-size:11px;border-radius:4px}
-  #explorar-enteromix .em-portada{padding:48px 20px}
+  #explorar-enteromix .em-portada{
+    min-height:0;
+    padding:48px 20px;
+    text-align:center;
+  }
+  #explorar-enteromix .em-portada-contenido{grid-template-columns:1fr;gap:28px}
+  #explorar-enteromix .em-portada-art{
+    width:min(100%,300px);
+    justify-self:center;
+  }
+  #explorar-enteromix .em-portada-art img{height:205px}
+  #explorar-enteromix .em-portada p{font-size:14px}
+  #explorar-enteromix .em-portada .em-mini{justify-content:center}
+  #explorar-enteromix .em-menu button{min-height:118px;padding:18px 9px 16px}
+  #explorar-enteromix .em-menu button:after{display:none}
+  #explorar-enteromix .em-menu button .em-icono{width:42px;height:42px;font-size:23px}
+  #explorar-enteromix .em-media-card,
+  #explorar-enteromix .em-media-duo,
+  #explorar-enteromix .em-media-strip{grid-template-columns:1fr}
+  #explorar-enteromix .em-media-trio{grid-template-columns:1fr}
+  #explorar-enteromix .em-text-media{grid-template-columns:1fr;gap:16px}
+  #explorar-enteromix .em-media-card{padding:10px}
+  #explorar-enteromix .em-media-card img,
+  #explorar-enteromix .em-media-duo img{height:190px}
+  #explorar-enteromix .em-media-card--compact img{height:160px}
+  #explorar-enteromix .em-media-card--diagram img{height:175px}
+  #explorar-enteromix .em-media-strip{gap:12px}
+  #explorar-enteromix .em-media-strip figure:first-child{grid-row:auto}
+  #explorar-enteromix .em-media-strip figure:first-child img{min-height:210px}
 }
 </style>
 
@@ -768,16 +1049,23 @@
 
   <!-- PORTADA -->
   <header class="em-portada">
-    <span class="em-etiqueta">Ciencia · Biotecnología · Investigación</span>
-    <h1>EnteroMix</h1>
-    <p>
-      Una mirada interactiva a la investigación de los virus oncolíticos
-      y su posible aplicación en el campo de la oncología.
-    </p>
-    <div class="em-mini">
-      <span>🧬 Fundamento biológico</span>
-      <span>🔬 Investigación científica</span>
-      <span>🧪 Experiencia interactiva</span>
+    <div class="em-portada-contenido">
+      <div>
+        <span class="em-etiqueta">Ciencia · Biotecnología · Investigación</span>
+        <h1>EnteroMix</h1>
+        <p>
+          Una mirada interactiva a la investigación de los virus oncolíticos
+          y su posible aplicación en el campo de la oncología.
+        </p>
+        <div class="em-mini">
+          <span>🧬 Fundamento biológico</span>
+          <span>🔬 Investigación científica</span>
+          <span>🧪 Experiencia interactiva</span>
+        </div>
+      </div>
+      <figure class="em-portada-art">
+        <img src="/imagenes/imagen3.jpeg" alt="Representación artística de un virus interactuando con una célula tumoral">
+      </figure>
     </div>
   </header>
 
@@ -821,12 +1109,19 @@
       especifica en el registro público <a class="em-cita" href="#ref-1">[1]</a><a class="em-cita" href="#ref-2">[2]</a>.
     </p>
 
-    <p>
-      La propuesta busca aprovechar determinadas características de los virus para
-      infectar células tumorales, multiplicarse en ellas y provocar su destrucción.
-      También se estudia si la infección y la muerte de estas células pueden favorecer
-      señales relacionadas con la respuesta inmunitaria.
-    </p>
+    <div class="em-text-media">
+      <p>
+        La propuesta busca aprovechar determinadas características de los virus para
+        infectar células tumorales, multiplicarse en ellas y provocar su destrucción.
+        También se estudia si la infección y la muerte de estas células pueden favorecer
+        señales relacionadas con la respuesta inmunitaria.
+      </p>
+      <div class="em-media-card em-media-card--compact">
+        <figure>
+          <img src="/imagenes/imagen8.jpeg" alt="Composición visual de una partícula viral y una célula tumoral">
+        </figure>
+      </div>
+    </div>
 
     <div class="em-grid">
       <div class="em-tarjeta">
@@ -890,21 +1185,29 @@
     </p>
 
     <h3>¿Qué son los enterovirus?</h3>
-    <p>
-      Los enterovirus pertenecen a la familia <strong>Picornaviridae</strong>.
-      Son virus pequeños, sin envoltura lipídica y con una cápside de simetría
-      icosaédrica. Su material genético corresponde a ARN monocatenario de
-      sentido positivo (+ssRNA), lo que significa que puede funcionar directamente
-      como ARN mensajero dentro de la célula hospedadora
-      <a class="em-cita" href="#ref-3">[3]</a><a class="em-cita" href="#ref-4">[4]</a>.
-    </p>
-
-    <p>
-      Una vez que el virus ingresa a una célula susceptible, su genoma puede
-      traducirse en el citoplasma mediante mecanismos que incluyen un sitio
-      interno de entrada al ribosoma (IRES). Esto permite producir proteínas
-      virales necesarias para la replicación y formación de nuevas partículas.
-    </p>
+    <div class="em-text-media">
+      <div class="em-text-media-copy">
+        <p>
+          Los enterovirus pertenecen a la familia <strong>Picornaviridae</strong>.
+          Son virus pequeños, sin envoltura lipídica y con una cápside de simetría
+          icosaédrica. Su material genético corresponde a ARN monocatenario de
+          sentido positivo (+ssRNA), lo que significa que puede funcionar directamente
+          como ARN mensajero dentro de la célula hospedadora
+          <a class="em-cita" href="#ref-3">[3]</a><a class="em-cita" href="#ref-4">[4]</a>.
+        </p>
+        <p>
+          Una vez que el virus ingresa a una célula susceptible, su genoma puede
+          traducirse en el citoplasma mediante mecanismos que incluyen un sitio
+          interno de entrada al ribosoma (IRES). Esto permite producir proteínas
+          virales necesarias para la replicación y formación de nuevas partículas.
+        </p>
+      </div>
+      <div class="em-media-card em-media-card--diagram">
+        <figure>
+          <img src="/imagenes/imagen1.jpeg" alt="Diagrama del ciclo de infección y replicación viral">
+        </figure>
+      </div>
+    </div>
 
     <h3>Características principales</h3>
     <div class="em-tabla-wrap">
@@ -1075,6 +1378,18 @@
       es evaluar la seguridad, tolerabilidad y farmacocinética de EM-I-2024 en
       personas con tumores sólidos <a class="em-cita" href="#ref-1">[1]</a>.
     </p>
+
+    <div class="em-media-trio">
+      <figure>
+        <img src="/imagenes/imagen2.jpeg" alt="Investigadora trabajando con muestras en un laboratorio">
+      </figure>
+      <figure>
+        <img src="/imagenes/imagen4.jpeg" alt="Investigadora analizando datos científicos">
+      </figure>
+      <figure>
+        <img src="/imagenes/imagen6.jpeg" alt="Frasco de una preparación observado con guantes de laboratorio">
+      </figure>
+    </div>
 
     <div class="em-grid">
       <div class="em-tarjeta">
@@ -1775,6 +2090,26 @@
       'no un procedimiento real de fabricación o aplicación de EnteroMix.';
   };
 
+  /* CITAS: abrir referencias y enfocar la fuente seleccionada */
+  raiz.querySelectorAll('.em-cita').forEach(cita=>{
+    cita.addEventListener('click',evento=>{
+      evento.preventDefault();
+      const referenciaId=cita.getAttribute('href');
+      const referencia=referenciaId ? raiz.querySelector(referenciaId) : null;
+      if(!referencia) return;
+
+      emAbrir('referencias');
+      window.setTimeout(()=>{
+        raiz.querySelectorAll('.em-referencias li.enfocada')
+          .forEach(elemento=>elemento.classList.remove('enfocada'));
+        referencia.classList.add('enfocada');
+        referencia.scrollIntoView({behavior:'smooth',block:'center'});
+        referencia.setAttribute('tabindex','-1');
+        referencia.focus({preventScroll:true});
+      },260);
+    });
+  });
+
   /* INICIALIZACIÓN */
   emConstruirSopa();
   emMostrarQuiz();
@@ -1783,4 +2118,3 @@
 </script>
 
 </section>
-
