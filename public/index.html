@@ -323,8 +323,13 @@
   grid-template-columns:repeat(4,1fr);
   gap:10px;
   margin:20px 0;
+  position:relative;
 }
 #explorar-enteromix .em-etapa{
+  appearance:none;
+  color:inherit;
+  font:inherit;
+  width:100%;
   background:rgba(255,255,255,.1);
   border:1px solid rgba(255,255,255,.2);
   border-radius:14px;
@@ -332,7 +337,10 @@
   text-align:center;
   opacity:.55;
   transition:.3s;
+  cursor:pointer;
 }
+#explorar-enteromix .em-etapa:hover,
+#explorar-enteromix .em-etapa:focus-visible{opacity:.9;border-color:#9aeaf5;outline:2px solid rgba(154,234,245,.45);outline-offset:2px}
 #explorar-enteromix .em-etapa.activa{
   opacity:1;
   background:rgba(41,169,197,.3);
@@ -351,6 +359,35 @@
   border-radius:13px;
   min-height:80px;
   color:#edfaff;
+  line-height:1.6;
+}
+#explorar-enteromix .em-simulacion-progreso{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin:12px 0 0;
+  color:#c5e3ee;
+  font-size:12px;
+}
+#explorar-enteromix .em-simulacion-progreso-barra{
+  flex:1;
+  height:7px;
+  overflow:hidden;
+  border-radius:99px;
+  background:rgba(255,255,255,.16);
+}
+#explorar-enteromix .em-simulacion-progreso-valor{
+  display:block;
+  width:25%;
+  height:100%;
+  border-radius:inherit;
+  background:linear-gradient(90deg,#65d5e9,#a5edce);
+  transition:width .45s ease;
+}
+#explorar-enteromix .em-pista{
+  margin:9px 0 0;
+  color:#c5e3ee;
+  font-size:12px;
 }
 #explorar-enteromix .em-visual{
   height:180px;
@@ -404,6 +441,36 @@
 #explorar-enteromix .em-visual.inmune .em-celula{
   box-shadow:0 0 35px #a5edce;
   border-color:#a5edce;
+}
+#explorar-enteromix .em-visual.replicacion:after{
+  content:"ARN viral + proteínas";
+  position:absolute;
+  bottom:14px;
+  padding:6px 10px;
+  border-radius:99px;
+  background:rgba(92,225,232,.2);
+  color:#d9ffff;
+  font-size:12px;
+}
+#explorar-enteromix .em-visual.lisis:after{
+  content:"Liberación de nuevas partículas";
+  position:absolute;
+  bottom:14px;
+  padding:6px 10px;
+  border-radius:99px;
+  background:rgba(255,180,120,.2);
+  color:#ffe7d5;
+  font-size:12px;
+}
+#explorar-enteromix .em-visual.inmune:after{
+  content:"Señales de reconocimiento";
+  position:absolute;
+  bottom:14px;
+  padding:6px 10px;
+  border-radius:99px;
+  background:rgba(165,237,206,.2);
+  color:#e4fff2;
+  font-size:12px;
 }
 
 /* ACTIVIDADES Y SUBMENÚ */
@@ -892,19 +959,19 @@
         <div class="em-celula" id="em-celula">🧬</div>
       </div>
 
-      <div class="em-etapas">
-        <div class="em-etapa activa" id="em-e0">
+      <div class="em-etapas" aria-label="Etapas de la simulación">
+        <button class="em-etapa activa" id="em-e0" type="button" onclick="emEtapa(0)" aria-label="Mostrar etapa 1: Contacto">
           <span>🦠</span><strong>Contacto</strong>
-        </div>
-        <div class="em-etapa" id="em-e1">
+        </button>
+        <button class="em-etapa" id="em-e1" type="button" onclick="emEtapa(1)" aria-label="Mostrar etapa 2: Replicación">
           <span>🧬</span><strong>Replicación</strong>
-        </div>
-        <div class="em-etapa" id="em-e2">
+        </button>
+        <button class="em-etapa" id="em-e2" type="button" onclick="emEtapa(2)" aria-label="Mostrar etapa 3: Lisis">
           <span>💥</span><strong>Lisis</strong>
-        </div>
-        <div class="em-etapa" id="em-e3">
+        </button>
+        <button class="em-etapa" id="em-e3" type="button" onclick="emEtapa(3)" aria-label="Mostrar etapa 4: Señales inmunes">
           <span>🛡️</span><strong>Señales inmunes</strong>
-        </div>
+        </button>
       </div>
 
       <div class="em-explicacion" id="em-explicacion">
@@ -912,6 +979,11 @@
         estructuras de la superficie de una célula susceptible e iniciar el proceso
         de infección.
       </div>
+      <div class="em-simulacion-progreso" aria-live="polite">
+        <span id="em-progreso-texto">Paso 1 de 4</span>
+        <span class="em-simulacion-progreso-barra" aria-hidden="true"><span class="em-simulacion-progreso-valor" id="em-progreso-valor"></span></span>
+      </div>
+      <p class="em-pista" id="em-pista">Observa cómo el virus se aproxima a la célula susceptible.</p>
 
       <div style="margin-top:15px">
         <button class="em-boton" onclick="emIniciar()">▶ Iniciar simulación</button>
@@ -1329,11 +1401,19 @@
     '<strong>Etapa 4: Señales inmunitarias.</strong> La muerte celular puede liberar moléculas que participan en señales de reconocimiento y respuesta del sistema inmunitario.'
   ];
 
+  const pistas=[
+    'Observa cómo el virus se aproxima a la célula susceptible.',
+    'El material viral usa la maquinaria celular para producir copias.',
+    'La célula pierde integridad y pueden liberarse nuevas partículas.',
+    'Las moléculas liberadas pueden alertar y activar al sistema inmunitario.'
+  ];
+
   let etapaActual=0;
   let temporizador=null;
 
-  window.emEtapa=function(i){
-    clearInterval(temporizador);
+  window.emEtapa=function(i, detener=true){
+    if(detener) clearInterval(temporizador);
+    if(i<0 || i>3) return;
     etapaActual=i;
 
     for(let j=0;j<4;j++){
@@ -1341,6 +1421,9 @@
     }
 
     raiz.querySelector('#em-explicacion').innerHTML=etapas[i];
+    raiz.querySelector('#em-progreso-texto').textContent='Paso '+(i+1)+' de 4';
+    raiz.querySelector('#em-progreso-valor').style.width=((i+1)*25)+'%';
+    raiz.querySelector('#em-pista').textContent=pistas[i];
 
     const visual=raiz.querySelector('#em-visual');
     visual.classList.remove('replicacion','lisis','inmune');
@@ -1355,11 +1438,11 @@
 
   window.emIniciar=function(){
     clearInterval(temporizador);
-    emEtapa(0);
+    emEtapa(0, false);
 
     temporizador=setInterval(function(){
       if(etapaActual<3){
-        emEtapa(etapaActual+1);
+        emEtapa(etapaActual+1, false);
       }else{
         clearInterval(temporizador);
       }
@@ -1700,6 +1783,4 @@
 </script>
 
 </section>
-
-
 
